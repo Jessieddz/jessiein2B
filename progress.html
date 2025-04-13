@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <style>
+        /* 视口宽度全屏显示 */
+.slider{
+  position:relative;
+  width:100%;
+  overflow:hidden;           /* 把多余内容裁掉 */
+}
+
+/* 火箭 / 箭头按钮 */
+.nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:10;
+  width:48px; height:48px;
+  border:none; background:none; cursor:pointer;
+  /* ↓ 用自己喜欢的 SVG / PNG 当背景即可 */
+  background:url("img/rocket-left.svg") center/contain no-repeat;
+}
+.next{
+  right:0;
+  background-image:url("img/rocket-right.svg");
+}
+.prev{ left:0; }
+
+/* 轨道：横向滚动 + Scroll‑Snap */
+.track{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;        /* 平滑滚动 */
+  scrollbar-width:none;          /* Firefox 隐藏滚动条 */
+}
+.track::-webkit-scrollbar{display:none;}  /* Chrome 隐藏滚动条 */
+
+/* 每一张幻灯片 */
+.slide{
+  flex:0 0 100%;                 /* 每张占 100% 视口宽 */
+  height:70vh;                   /* 按需调整高 */
+  scroll-snap-align:center;
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+  font-size:3rem; color:#fff;
+}
+
+/* Demo 用不同背景色区分 */
+.slide:nth-child(1){background:#e74c3c;}
+.slide:nth-child(2){background:#27ae60;}
+.slide:nth-child(3){background:#2980b9;}
+
+    </style>
+</head>
+<body>
+    <section class="slider">
+        <!-- 左箭头 / 火箭按钮 -->
+        <button class="nav prev" aria-label="上一张"></button>
+      
+        <!-- 可横向滚动的轨道 -->
+        <div class="track" id="track">
+          <article class="slide"> …第 1 张… </article>
+          <article class="slide"> …第 2 张… </article>
+          <article class="slide"> …第 3 张… </article>
+          <!-- 想要几张就写几张 -->
+        </div>
+      
+        <!-- 右箭头 / 火箭按钮 -->
+        <button class="nav next" aria-label="下一张"></button>
+      </section>
+
+      <script>
+        const track = document.getElementById('track');
+        const slides = document.querySelectorAll('.slide');
+        const slideWidth = () => track.clientWidth;   // 100% 视口
+        
+        document.querySelector('.next').onclick = () => {
+          track.scrollBy({left: slideWidth(), behavior:'smooth'});
+        };
+        document.querySelector('.prev').onclick = () => {
+          track.scrollBy({left: -slideWidth(), behavior:'smooth'});
+        };
+        
+        /* 可选：键盘左右箭头也控制 */
+        document.addEventListener('keydown', e=>{
+          if(e.key==='ArrowRight') track.scrollBy({left: slideWidth(), behavior:'smooth'});
+          if(e.key==='ArrowLeft')  track.scrollBy({left: -slideWidth(), behavior:'smooth'});
+        });</script>
+      
+      
+</body>
+</html>

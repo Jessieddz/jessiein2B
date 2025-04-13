@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Interactives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" type="text/css" href="css\style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<style>
+
+body{
+  margin:0;
+  background:#0c0713;        /* 深色背景 */
+  font-family:"WinkyRough-SemiBold",cursive;
+  font-weight: 600;
+  color:#fff;
+}
+
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(1,1fr);  
+  gap:3vw;
+  padding:3vw;
+  justify-items:center;
+}
+
+.co{
+  grid-template-columns:repeat(1,1fr); 
+}
+
+.item{
+  text-decoration:none;
+  color:inherit;
+}
+
+
+
+
+/* —— 4. 圆形容器 —— */
+.circle{
+  position:relative;
+  width: 90%;                 
+  aspect-ratio:1/1;           
+  max-width:500px;           
+  border-radius:50%;
+  overflow:hidden;
+}
+
+/* —— 5. 圆内图片 —— */
+.circle img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:filter .4s ease;
+}
+
+/* —— 6. 悬停文字（默认隐藏） —— */
+.overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  padding: 0 10%;
+  align-items:center;
+  justify-content:center;
+  font-size:15px;
+  font-weight:700;
+  opacity:0;
+  transition:opacity .4s ease;
+  pointer-events:none;       
+}
+
+
+.item:hover .circle img{
+  filter:blur(4px) brightness(.7);
+}
+.item:hover .overlay{
+  opacity:1;
+}
+
+
+.caption{
+  margin-top:1rem;
+  text-align:center;
+  font-size:40px;
+}
+
+@media (min-width:600px){
+  .circle{width:500px;}
+}
+
+
+
+</style>
+</head>
+<body>
+
+<h1 style="text-align:center; padding:3vw 0 0; font-size:6vw;">Interactivities</h1>
+
+<section class="gallery">
+
+  <!-- 第 1 个条目 -->
+  <a class="item" href="song.html">
+    <div class="circle">
+      <div class="co">
+      <img src="img/dacc757691f62aba39a66123ddc3bd3.jpg" alt="week1">
+      <span class="overlay">This week, I visited the art exhibition of YAYOI KUSAMA. KUSAMA is a Japanese contemporary artist whose works show the exploration of infinite space and the expression of personal psychological state.<br>The frequently appearing elements are wave dots and bright colors. I was particularly interested in the art installation Flower Obsession, a stage apartment where people were invited to put red flowers all over the room. In this space, the line of sight is repeated bright flowers, as if the whole world is full of red flowers, and I am submerged in the sea of flowers. I was inspired by Kusama's work and started to develop my web page based on flowers.</span>
+    </div>
+    </div>
+    <p class="caption">Week 4</p>
+  </a>
+
+  <!-- 第 2 个条目 -->
+  <a class="item">
+    <div class="circle">
+      <div class="co">
+      <img src="img/catx.png" alt="week2">
+      <span class="overlay">Random dice Roll Game -P5 coding exercise. This exercise is done by translating individual rules and results into P5.js sketches, such as randomly rolling dice ten times a day to decide on clothes to wear, mode of transportation, food, color of shoes, etc. I want my cat Dora to be a participant in the game. For example, a random yellow roll of dice in the center of the screen indicates that he is going to wear a spit towel today, and then a second roll of dice indicates that he is going to wear a purple, so his lunch will be a purple can of rabbit.</span>
+    </div>
+    </div>
+    <p class="caption">Week 5</p>
+  </a>
+  
+  <!-- 第 3 个条目 -->
+  <a class="item">
+    <div class="circle">
+      <div class="co">
+      <img src="img/b128155ca2c7952c4f00ce8192d290d.jpg" alt="week3">
+      <span class="overlay">Data in my porket: This is an exercise in data visualization and sorting, the purpose of which is to visualize the "data" we carry around on a daily basis. My team and I emptied the contents of the backpack and arranged them on the carpet. The first time we arranged them according to size, and the second time we arranged them according to the attributes of different functions.</span>
+    </div>
+    </div>
+    
+    <p class="caption">Week 6</p>
+  </a>
+
+   <a href="index.html" class="left-corner-icon">
+    <img src="img/backbutton.png" alt="Icon" >
+  </a>'
+
+ 
+  
+</section>
+
+</body>
+</html>
