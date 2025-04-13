@@ -1,0 +1,23 @@
+body, html { 
+  margin: 0; padding: 0; }
+
+    canvas { 
+      display: block; }
+
+      /* 返回专用icon */
+
+      .left-corner-icon {
+        position: fixed;
+        top: 20px;     
+        left: 20px;     
+        z-index: 1000;
+        display: block;
+      }
+      
+      .left-corner-icon img {
+        width: 250px;
+        height: 250px;
+        object-fit: contain;
+      }
+      
+      
